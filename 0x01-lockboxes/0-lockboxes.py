@@ -21,7 +21,7 @@ def canUnlockAll(boxes):
 
     Solution to the lockboxes problem
     """
-    if (type(boxes) is not list:
+    if (type(boxes)) is not list:
         return False
     elif (len(boxes)) == 0:
         return False
