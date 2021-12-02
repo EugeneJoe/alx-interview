@@ -4,16 +4,6 @@ Solution to lockboxes problem
 """
 
 
-def join(locked, my_keys):
-    """
-    Add obtained keys to our keys list
-    """
-    res = []
-    for key in my_keys:
-        res += locked[key]
-    return res
-
-
 def canUnlockAll(boxes):
     """
     Determines whether a series of locked boxes can be opened
