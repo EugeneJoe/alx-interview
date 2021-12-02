@@ -25,15 +25,13 @@ def canUnlockAll(boxes):
         return False
     elif (len(boxes)) == 0:
         return False
-    index = 0
-    keys = list(set(boxes[0]) | {0})
-    added = True
-    while added:
-        added = False
-        for key in join(boxes, keys[index:]):
-            if key not in keys:
-                keys.append(key)
-                index += 1
-                added = True
 
-    return len(keys) == len(boxes)
+    for k in range(1, len(boxes) - 1):
+        boxes_checked = False
+        for idx in range(len(boxes)):
+            boxes_checked = k in boxes[idx] and k != idx
+            if boxes_checked:
+                break
+        if boxes_checked is False:
+            return boxes_checked
+    return True
