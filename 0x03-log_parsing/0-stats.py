@@ -16,8 +16,8 @@ def print_metrics(file_size, status_codes):
             print("{}: {}".format(code, status_codes[code]))
 
 
-possible_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
-codes_count = {}
+codes_count = {'200': 0, '301': 0, '400': 0, '401': 0,
+               '403': 0, '404': 0, '405': 0, '500': 0}
 file_size_total = 0
 count = 0
 
@@ -26,10 +26,8 @@ if __name__ == "__main__":
         for line in sys.stdin:
             try:
                 status_code = line.split()[-2]
-                if status_code in (possible_codes and codes_count.keys()):
+                if status_code in codes_count.keys():
                     codes_count[status_code] += 1
-                else:
-                    codes_count[status_code] = 1
                 # Grab file size
                 file_size = int(line.split()[-1])
                 file_size_total += file_size
