@@ -3,7 +3,6 @@
 Log parsing
 """
 import sys
-import re
 
 
 def print_metrics(file_size, status_codes):
@@ -21,6 +20,7 @@ possible_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
 codes_count = {}
 file_size_total = 0
 count = 0
+
 if __name__ == "__main__":
     try:
         for line in sys.stdin:
@@ -30,10 +30,10 @@ if __name__ == "__main__":
                     codes_count[status_code] += 1
                 else:
                     codes_count[status_code] = 1
-                    # Grab file size
+                # Grab file size
                 file_size = int(line.split()[-1])
                 file_size_total += file_size
-            except:
+            except Exception:
                 pass
             # print metrics if 10 lines have been read
             count += 1
@@ -43,5 +43,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print_metrics(file_size_total, codes_count)
         raise
-    else:
-        print_metrics(file_size_total, codes_count)
+    print_metrics(file_size_total, codes_count)
