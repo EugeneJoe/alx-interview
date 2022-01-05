@@ -54,7 +54,7 @@ def nqueens(n):
 
 if __name__ == "__main__":
     n = sys.argv
-    if len(n) > 2:
+    if len(n) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
     try:
