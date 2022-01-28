@@ -13,12 +13,14 @@ def makeChange(coins, total):
     Return:
         Number of coins or -1 if meeting the total is not possible
     """
-    if total <= 0 or coins == []:
+    if total <= 0:
         return 0
+    if coins == [] or coins is None:
+        return -1
     try:
         n = coins.index(total)
         return 1
-    except:
+    except ValueError:
         pass
 
     coins.sort(reverse=True)
