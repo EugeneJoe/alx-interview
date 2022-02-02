@@ -25,19 +25,16 @@ def boundary(grid, i, j):
         elif grid[i-1][j] == 0:
             boundaries += 1
     except:
-        print("Upper")
         boundaries += 1
     try:
         if grid[i+1][j] == 0:
             boundaries += 1
     except:
-        print("lower")
         boundaries += 1
     try:
         if grid[i][j+1] == 0:
             boundaries += 1
     except:
-        print("right")
         boundaries += 1
     try:
         if j == 0:
@@ -45,21 +42,16 @@ def boundary(grid, i, j):
         elif grid[i][j-1] == 0:
             boundaries += 1
     except:
-        print("left")
         boundaries += 1
 
     if boundaries == 1:
         bound_1.add((i, j))
-        print("{},{}:1".format(i, j))
     elif boundaries == 2:
         bound_2.add((i, j))
-        print("{},{}:2".format(i, j))
     elif boundaries == 3:
         bound_3.add((i, j))
-        print("{},{}:3".format(i, j))
     elif boundaries == 4:
         bound_4.add((i, j))
-        print("{},{}:4".format(i, j))
 
 
 def island_perimeter(grid):
@@ -77,7 +69,6 @@ def island_perimeter(grid):
         return 0
     l = len(grid)
     w = len(grid[0])
-    print("{} x {}".format(l, w))
     for i in range(l):
         for j in range(w):
             if grid[i][j] == 1:
